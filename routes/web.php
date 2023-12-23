@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\websiteController;
+use App\Http\Controllers\AdminLayoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,14 @@ use App\Http\Controllers\websiteController;
 |
 */
 Route::get('/',[websiteController::class,'home']);
+Route::get('about', [websiteController::class,'about']);
+Route::get('contact', [websiteController::class,'contact']);
+Route::get('services', [websiteController::class,'services']);
 
-Route::get('about', [HomeController::class,'about']);
+Route::get('admin/dashboard',[AdminLayoutController::class,'dashboard']);
+Route::get('admin/tables',[AdminLayoutController::class,'tables']);
+Route::get('admin/login',[AdminLayoutController::class,'login']);
+Route::get('admin/register',[AdminLayoutController::class,'register']);
 
 Route::get('business', [HomeController::class,'business']);
 Route::get('department/create',[DepartmentController::class,'create']);
